@@ -183,4 +183,7 @@ color:#000 !important
         width: 90% ;
         margin: 0 auto;
     }
+    .form-check{
+        font-size: 16px !important;
+    }
 }

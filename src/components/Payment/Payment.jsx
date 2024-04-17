@@ -66,9 +66,9 @@ if (res.data.status === "success") {
     })
     return <>
  
-        <div className="mx-auto w-75 p-5 bg-main-light mt-5 rounded-4">
-            <h2 className='mb-4 '>Shipping Address :</h2>
-            <h2 className='text-center'>Payment Method :  </h2>
+        <div className="register p-5 bg-main-light mt-5 rounded-4">
+            <h3 className='mb-4 '> Shipping Address :</h3>
+            <h3 className='text-center'>Payment Method :  </h3>
          <form onSubmit={myFormik.handleSubmit}>
        <div className='d-flex justify-content-around flex-wrap align-items-center mt-3'> 
          <div className="form-check fs-5 ">
@@ -92,7 +92,7 @@ if (res.data.status === "success") {
           {myFormik.errors.phone && myFormik.touched.phone ? <div className='alert alert-danger'>{myFormik.errors.phone}</div>:''}
           <label  className='mb-2 fs-5'   htmlFor="details">Details :</label>
           <textarea  onBlur={myFormik.handleBlur} onChange={myFormik.handleChange} value={myFormik.values.details} id='details' type="text " placeholder='details...' className='form-control pb-5'/>
-          <button type='submit'  className='btn bg-main text-white mt-4 w-50 mx-auto d-block'> Confirm Payment</button>
+          <button type='submit'  className='btn bg-main text-white mt-4 w-75 mx-auto d-block'> Confirm Payment</button>
          </form>
 
         </div>
