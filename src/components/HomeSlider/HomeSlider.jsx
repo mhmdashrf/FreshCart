@@ -16,7 +16,8 @@ export default function HomeSlider() {
       };
      
     return <>
-     <div className="row mb-5 gx-0">
+    <div className="container">
+    <div className="row mb-5 gx-0">
           <div className="col-md-9">
           <Slider {...settings}>
    <div>
@@ -39,7 +40,8 @@ export default function HomeSlider() {
             <img style={{height:"200px"}} className='w-100' src={require("../../images/grocery-banner.png") }alt=""/>
            </div>
           </div>
-          </div>    
+          </div>
+      </div>    
  
   
   

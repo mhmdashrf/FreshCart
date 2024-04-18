@@ -7,6 +7,7 @@ import { cartContext } from '../Context/CartContext';
 import toast from 'react-hot-toast';
 import Loader from '../Loader/Loader';
 import { wishListContext } from '../Context/WishListContext';
+import CategorySlider from '../CategorySlider/CategorySlider';
 
 function Products() {
  const {addToCart} = useContext(cartContext);
@@ -125,12 +126,12 @@ if (isLoading) {
   return <Loader/>
 }
     return <> 
-          
-      <div className="container mt-4">
-              <HomeSlider/> 
-              {/* <CategorySlider/>    */}
+              
+      <div className="mycontainer mt-4">
+            <HomeSlider/> 
+            <CategorySlider/>
              </div>
-           <div className="container">
+           <div className="mycontainer">
         
            <input onChange={(e)=> setSearch(e.target.value)} className='form-control border-1 border-dark-subtle' type='text' placeholder='search .....' />
            <div className="row products  g-3 my-5 ">

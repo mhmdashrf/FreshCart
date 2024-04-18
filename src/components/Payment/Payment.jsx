@@ -4,6 +4,7 @@ import * as yup from'yup'
 import { cartContext } from '../Context/CartContext'
 import toast from 'react-hot-toast'
 import { routeAPI } from '../../api'
+import { useNavigate } from 'react-router-dom'
 
 const mySchema = yup.object({
     
@@ -16,6 +17,7 @@ const mySchema = yup.object({
 function Payment() {
 const [paymentMethod, setPaymentMethod] = useState("1")
  const {cartId,clearALLCart} = useContext(cartContext)
+ const nav =useNavigate()
     const payData={
       
         details: "",
@@ -46,6 +48,9 @@ if (res.data.status === "success") {
     }else {
         toast.success("Payment Completd Successfully")
         clearALLCart()
+        setTimeout(()=>{
+          nav("/allorders")
+        },1600)
     }
    
 }

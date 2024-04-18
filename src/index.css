@@ -125,6 +125,10 @@ transform: translateY(0%);
    opacity: 0;
    transition: 0.6s all;
 } 
+.mycontainer{
+    margin: 0 auto;
+    width: 90%;
+}
  .nav-link:hover::after{
 left: 0;
 opacity: 1;
@@ -148,6 +152,16 @@ color:#000 !important
     width: 80% ;
     margin: 0 auto;
 }
+::-webkit-scrollbar{
+    width: 14px;
+}
+::-webkit-scrollbar-track{
+    background: #DEDEDE;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #333;
+    border-radius: 10px;
+}
 @media (max-width:993px){
     .navbar-nav{
         align-items: center;
@@ -166,7 +180,46 @@ color:#000 !important
       .divImgFooter{
         justify-content: center;
       }
+      
 }
+@keyframes down{
+    0%{
+        transform: translateY(-100px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}
+nav{
+    animation: down 1s 1;
+}
+
+.navbar-brand{
+    animation: ltr 2s 1;
+    
+}
+
+@keyframes ltr{
+   0%{
+       transform: translateX(-100px);
+       color: cyan;
+   }
+50%{
+   transform: translateX(-150px);
+}
+65%{
+   transform: translateX(30px);
+}
+75%{
+        transform: translateX(-100px);
+}
+
+   100%{
+       transform: translateX(0);
+   }
+}
+
 @media (max-width:767px){
  .homeSliderImg{
     margin-top: 30px;

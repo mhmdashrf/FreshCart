@@ -1,44 +1,46 @@
 import axios from "axios";
-import { FallingLines } from "react-loader-spinner";
-import { useQuery } from "react-query";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 export default function CategorySlider() {
-
-   function getCategorySlider() {
+const [categories,setCategories]=useState([])
+  async function getCategorySlider() {
  
-     return axios.get(`https://ecommerce.routemisr.com/api/v1/categories`)
+    const {data}= await axios.get(`https://ecommerce.routemisr.com/api/v1/categories`)
+    setCategories(data.data)
    }
-  const {data , isLoading} = useQuery('getCategorySlider', getCategorySlider)
-console.log(data);
+  // const {data } = useQuery('getCategorySlider', getCategorySlider)
+useEffect(()=>{
+  getCategorySlider();
+},[])
   var settings = {
-     dots: true,
+     dots: false,
      autoplay: true,
      infinite: true,
      speed: 1000,
-     slidesToShow: 2,
+     slidesToShow: 8,
      slidesToScroll: 2,
      responsive:[{
-       breakpoint: 768,
+       breakpoint: 767,
        settings:{
         slidesToShow: 3,
          slidesToScroll: 3,
       }
      }]
   };
-  if (isLoading) {
-     return <div className="loader bg-opacity-50 bg-info vh-100 d-flex justify-content-center align-items-center">
-     <FallingLines
-   color="#fff"
-  width="100"
-   visible={true}
-   ariaLabel="falling-circles-loading"
-   />
-   </div>
-  }
+ 
   return <>
-    <Slider {...settings}>
+  
+     <div className="container my-5">
+      <h2 className=" mb-3">Shop Pupular Categories</h2>
+      <Slider {...settings}>
+      {categories.map((cat,idx)=><div key={idx} className="item px-2">
+        <img className="w-100" height={"200px"} src={cat.image} alt={cat.name} />
+        <h5 className="text-center">{cat.name}</h5>
+      </div>)}
+   
  
     </Slider>
+    </div>
   </>
 }

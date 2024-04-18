@@ -30,7 +30,7 @@ useEffect(()=>{
 <nav className="navbar navbar-expand-lg navbar-light bg-light ">
   <div className="container">
    <div className='d-flex align-items-center flex-wrap'>
-   <NavLink to={"/product"} className="navbar-brand" ><img className='w-100' src={logo} alt="logo" /></NavLink>
+   <Link to={"/products"} className="navbar-brand" ><img className='w-100' src={logo} alt="logo" /></Link>
   <div className='d-flex'>
   {myToken? <li className="nav-item position-relative list-unstyled me-3">
           <Link className="-link " to={'/wishlist'}><i className="fa-solid fa-heart text-main fs-6"></i></Link>
@@ -84,7 +84,7 @@ useEffect(()=>{
 
         </ul>
         {myToken?   <li className="nav-item">
-          <Link onClick={logout} className="-link fs-6" >logout  <i class="fa-solid fa-right-from-bracket ms-1"></i></Link>
+          <Link onClick={logout} className="-link fs-6" >logout  <i className="fa-solid fa-right-from-bracket ms-1"></i></Link>
         </li>: <>
         <li className="nav-item">
           <Link className="-link" to={'/login'}>Login</Link>
