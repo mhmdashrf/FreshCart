@@ -1,17 +1,20 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { useQuery } from 'react-query'
-import { Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { cartContext } from '../Context/CartContext'
 import toast from 'react-hot-toast'
 import Loader from '../Loader/Loader'
 import Slider from 'react-slick'
 import { wishListContext } from '../Context/WishListContext'
+import { brandContext } from '../Context/BrandContext'
 
 function ProductDetails() {
 const [isHeart,setIsHeart] = useState(false);
  const {addToCart} = useContext(cartContext);
  const {addToWishList,removeItem} = useContext(wishListContext);
+ const {setBrandProduct} = useContext(brandContext)
+ const nav = useNavigate()
 
  
     const{id} = useParams()
@@ -116,13 +119,19 @@ const [isHeart,setIsHeart] = useState(false);
     }
    const{ data ,isLoading, isError}= useQuery(`getproductDetails-${id}`,getproductDetails)
 
+   function getBrandDetails(name){
+    setBrandProduct(name)
+    localStorage.setItem('nameBrands',name);
+    nav("/branddetails")
+   } 
  if (isLoading) {
     return <Loader/>
   }
   if (isError) {
    return <Navigate to='products'/>
   }
-  const products = data.data.data
+  const products = data.data.data;
+  console.log(products);
   var settings = {
     dots: true,
     infinite: true,
@@ -133,6 +142,7 @@ const [isHeart,setIsHeart] = useState(false);
     arrows:false,
    
   };
+  
  
     return <>
     <div className="container my-5">
@@ -152,14 +162,17 @@ const [isHeart,setIsHeart] = useState(false);
           {isHeart ? <i onClick={()=>deletIteamFromWishList(products.id)} className="fa-solid fa-heart d-flex justify-content-end my-4 fs-2 text-danger cursor-pointer heartDetails"></i>:<i onClick={()=> WishListFavorite(products.id)} className="fa-regular fa-heart d-flex justify-content-end  fs-2 my-4 cursor-pointer"></i>} 
               <article>
               <h1 className='fw-bold'>{products.title}</h1>
+              <h2 className='my-3'>   Brand: <strong className='text-main '>{products.brand.name}</strong> | <Link onClick={()=> getBrandDetails(products.brand.name)} className='text-main linkDetailsFilterBrand'> Similar Products From {products.brand.name} </Link> </h2>
+
                <p>{products.description}</p>
                <div className='d-flex  justify-content-between align-items-center'>
-                                  <h5>Price: <span className='text-main fw-bold'>{products.price}</span></h5>
+                      
+                                  <h5>Price: <span className='text-main fw-bold'>{products.price} EGP</span> </h5>
                                   <h5>  <i className='fa fa-star rating-color'></i> <span>{products.ratingsAverage}</span></h5>
                                   
                                  </div>
                              <div className='d-flex '>
-              <button onClick={()=> addProductToCart(data.data.data.id)} className='btn bg-main w-75 text-white mt-2 ms-3'> Add to Cart + </button>
+              <button onClick={()=> addProductToCart(data.data.data.id)} className='btnDetails btn bg-main w-75 text-white mt-2 ms-3'> Add to Cart + </button>
                
                              </div>
                                  </article>

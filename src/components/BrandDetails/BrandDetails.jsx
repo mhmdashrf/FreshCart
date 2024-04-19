@@ -126,7 +126,7 @@ function BrandDetails() {
       }
     return <>
     
-    <div className="container my-5">
+    <div className="mycontainer my-5">
     <div className="row products">
     {data.data.data.filter((product)=> product.brand.name === brandProduct).map((product,idx)=> { 
        const heartValue =  allfav?.find((pro)=>pro.id===product.id)
@@ -136,7 +136,7 @@ function BrandDetails() {
                     <Link className='product' to={`/productDetails/${product.id}`}>
                     <div className=" rounded-1 ">
                             <img className='w-100 rounded-3 shadow-sm' src={product.imageCover} alt=''></img>
-                            <h2 className='text-main fs-4 fw-bolder mt-2'>{product.category.name}</h2>
+                            <h3 className='text-main fs-4 fw-bolder mt-2'>{product.brand.name} {product.category.name}</h3>
                             <h3 className='h6 text-center fw-bold'>{product.title.split(" ").slice(0,2).join(" ")} </h3>
                             <div className="d-flex justify-content-between">
                                {product.priceAfterDiscount ? <p><span className='text-decoration-line-through text-danger fs-6'>{product.price }</span> - <span className='fw-400 fs-6'>{product.priceAfterDiscount}</span> EGP</p> :<p>{product.price} EGP</p>}

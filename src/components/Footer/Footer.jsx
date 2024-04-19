@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return <>
- <section className='bg-main-light d-flex py-5 mt-4 rounded-5'>
+ <section className='bg-main-light d-flex py-5 mt-4 rounded-5 '>
  <div className="container">
   <div className="    ">
     <h3>Get The FreshCart App</h3>

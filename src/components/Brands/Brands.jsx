@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { useQuery } from 'react-query';
 import Loader from '../Loader/Loader';
 import { brandContext } from '../Context/BrandContext';

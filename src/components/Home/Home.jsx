@@ -121,7 +121,7 @@ const [search,setSearch] =useState("")
       }
    
     return <>
-      <div className="container mt-5">
+      <div className="mycontainer mt-5">
         
         <input onChange={(e)=> setSearch(e.target.value)} className='form-control border-1 border-dark-subtle' type='text' placeholder='search .....' />
         <div className="row products  g-3 my-5 ">
