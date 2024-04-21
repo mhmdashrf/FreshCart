@@ -212,6 +212,7 @@ nav{
     background-color: #fff;
 }
 .imgHomeSlider{ height: 400px;}
+.imgCategorySlider{height: 150px;}
 @media (max-width:993px){
     .navbar-nav{align-items: center;}
     .inputFooter{ width: 50% !important;}
@@ -241,8 +242,10 @@ nav{
 @media (max-width:767px){
  .homeSliderImg{ margin-top: 30px;}
  .imgHomeSlider{ height: 300px;}
+ .imgCategorySlider{height: 120px;}
 }
 @media (max-width:500px){
+    .imgCategorySlider{height: 100px;}
        .divImgFooter{
         width: 30%;
     }

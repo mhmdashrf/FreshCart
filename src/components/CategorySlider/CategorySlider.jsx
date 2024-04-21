@@ -35,7 +35,7 @@ useEffect(()=>{
       <h2 className=" mb-3">Shop Pupular Categories</h2>
       <Slider {...settings}>
       {categories.map((cat,idx)=><div key={idx} className="item px-2 ">
-        <img className="w-100 rounded-circle" height={"150px"} src={cat.image} alt={cat.name} />
+        <img className="w-100 rounded-circle imgCategorySlider" src={cat.image} alt={cat.name} />
         <h6 className="text-center mt-2">{cat.name}</h6>
       </div>)}
    
