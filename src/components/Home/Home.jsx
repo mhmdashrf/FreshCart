@@ -123,12 +123,15 @@ const [search,setSearch] =useState("")
     return <>
       <div className="mycontainer mt-5">
         
-        <input onChange={(e)=> setSearch(e.target.value)} className='form-control border-1 border-dark-subtle' type='text' placeholder='search .....' />
+      <div className=' w-75 mx-auto input-group'>
+      <input onChange={(e)=> setSearch(e.target.value)} className='input rounded-3' type='text'   />
+      <label className='placeholder'> Search : </label>
+      </div>
         <div className="row products  g-3 my-5 ">
        
          {data.data.data.filter((item)=>{
         
-                       return search.toLocaleLowerCase() === "" ? item : item.category.name.toLocaleLowerCase().includes(search)
+                       return search.toLowerCase() === "" ? item : item.category.name.toLowerCase().includes(search)
                        
          }).map((product,idx) =>  
          {const heartValue =  allfav?.find((pro)=>pro.id===product.id)

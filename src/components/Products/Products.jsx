@@ -133,19 +133,20 @@ console.log(data.data.data);
             <CategorySlider/>
              </div>
            <div className="mycontainer">
-        
-           <input onChange={(e)=> setSearch(e.target.value)} className='form-control border-1 border-dark-subtle' type='text' placeholder='search .....' />
+           <div className=' w-75 mx-auto input-group'>
+      <input onChange={(e)=> setSearch(e.target.value)} className='input rounded-3' type='text'   />
+      <label className='placeholder'> Search : </label>
+      </div>
            <div className="row products  g-3 my-5 ">
           
             {data.data.data.filter((item)=>{
            
-                          return search.toLocaleLowerCase() === "" ? item : item.category.name.toLocaleLowerCase().includes(search)
+                          return search.toLowerCase() === "" ? item : item.category.name.toLowerCase().includes(search);
                           
             }).map((product,idx) =>  
             {const heartValue =  allfav?.find((pro)=>pro.id===product.id)
               return <div key={idx} className="col-md-2 p-2 position-relative ">
         {heartValue? <i id='wishIcon' onClick={()=> deleteItem(product.id)} className="fa-solid fa-heart d-flex justify-content-end position-absolute z-2 heartColor"></i>:<div className='bg-danger'><i id='wishIcon' onClick={()=> WishListFavorite(product.id)} className="fa-regular fa-heart d-flex justify-content-end position-absolute z-2 blackColor "></i></div>}
-          
                 <Link className='product' to={`/productDetails/${product.id}`}>
                 <div className=" rounded-1 ">
                         <img className='w-100 rounded-3 shadow-sm ' src={product.imageCover} alt=''></img>

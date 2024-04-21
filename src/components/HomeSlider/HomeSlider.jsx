@@ -21,13 +21,13 @@ export default function HomeSlider() {
           <div className="col-md-9">
           <Slider {...settings}>
    <div>
-      <img style={{height: '400px'}} className='w-100' src= {require('../../images/slider-image-3.jpeg')} alt=''/>
+      <img  className='w-100 imgHomeSlider' src= {require('../../images/slider-image-3.jpeg')} alt=''/>
       </div>
     <div>
-      <img style={{height: '400px'}} className='w-100' src= {require('../../images/slider-2.jpeg')} alt=''/>
+      <img  className='w-100 imgHomeSlider' src= {require('../../images/slider-2.jpeg')} alt=''/>
       </div>
       <div>
-      <img style={{height: '400px'}} className='w-100' src= {require('../../images/slider-image-2.jpeg')} alt=''/>
+      <img  className='w-100 imgHomeSlider' src= {require('../../images/slider-image-2.jpeg')} alt=''/>
       </div>
   
     </Slider>

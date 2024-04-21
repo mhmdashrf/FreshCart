@@ -179,74 +179,79 @@ nav{
  font-weight: 600;
 }
 .linkDetailsFilterBrand:hover{
-    color:#60f060;
-   
+    color:#60f060; 
 }
+.input-group{
+    position: relative;
+}
+.input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid #dfdbdb;
+    border-radius: 10px;
+    box-shadow: 0 4px 2px -2px #f0f3f2dc;
+}
+.placeholder{
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    font-size: 16px;
+    padding: 0px 10px;
+    color: #000;
+    transition: 0.3s;
+    pointer-events: none;
+    background-color: #fff;
+}
+.input:focus + .placeholder{
+    top: -13px;
+    color: #0aad0a;
+    font-weight: 600;
+    background-color: #fff;
+}
+.imgHomeSlider{ height: 400px;}
 @media (max-width:993px){
-    .navbar-nav{
-        align-items: center;
-    }
-    .inputFooter{
-        width: 50% !important;
-    }
-    .buttonFooter{
-        padding: 8px 10px !important;
-    }
+    .navbar-nav{align-items: center;}
+    .inputFooter{ width: 50% !important;}
+    .buttonFooter{padding: 8px 10px !important;}
     .PaymentFooter,.appFooter{
         flex-direction: column; 
         justify-content: center;
         align-items: center;
       }
-      .divImgFooter{
-        justify-content: center;
-      }
+      .divImgFooter{justify-content: center;}
 }
 @keyframes down{
-    0%{
-        transform: translateY(-100px);
-    }
+    0%{  transform: translateY(-100px);}
 
-    100%{
-        transform: translateY(0);
-    }
+    100%{ transform: translateY(0); }
 }
 @keyframes ltr{
    0%{
        transform: translateX(-100px);
        color: cyan;
    }
-50%{
-   transform: translateX(-150px);
+50%{ transform: translateX(-150px);}
+65%{ transform: translateX(30px);}
+75%{  transform: translateX(-100px);}
+100%{ transform: translateX(0);}
 }
-65%{
-   transform: translateX(30px);
-}
-75%{
-        transform: translateX(-100px);
-}
-
-   100%{
-       transform: translateX(0);
-   }
-}
-
 @media (max-width:767px){
- .homeSliderImg{
-    margin-top: 30px;
- }
-    
+ .homeSliderImg{ margin-top: 30px;}
+ .imgHomeSlider{ height: 300px;}
 }
 @media (max-width:500px){
-   
        .divImgFooter{
         width: 30%;
-      
     }
     .register{
         width: 90% ;
         margin: 0 auto;
     }
-    .form-check{
-        font-size: 16px !important;
+    .form-check{font-size: 16px !important;}
+    .imgHomeSlider{
+        height: 250px;
     }
 }
