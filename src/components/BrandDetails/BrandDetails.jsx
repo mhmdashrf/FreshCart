@@ -59,11 +59,9 @@ function BrandDetails() {
        }
        async function WishListFavorite(id) {
         const res = await addToWishList(id)
-       
         if (res) {
           toast.success(" Product added successfully to Your WishList. "
           ,{
-           
           duration:1700,
           position:'top-center',
           style:{
@@ -72,7 +70,6 @@ function BrandDetails() {
             color:"#fff",
             backgroundColor:"#44c612",
            fontWeight:"500"
-           
           }
         })
         }else{
@@ -96,7 +93,7 @@ function BrandDetails() {
        }
        async function deleteItem(id) {
         const res = await removeItem(id)
-      
+    
         if (res) {
           toast.success(" Product Removed successfully to Your WishList. "
           ,{
@@ -115,24 +112,19 @@ function BrandDetails() {
         }
        }
     async function getaLLProducts() {
-
-        return  axios.get(`https://ecommerce.routemisr.com/api/v1/products`)
-       
+        return  axios.get(`https://ecommerce.routemisr.com/api/v1/products`);
        }
-       const {data,isLoading} = useQuery('getaLLProducts', getaLLProducts)
-
+       const {data,isLoading} = useQuery('getaLLProducts', getaLLProducts);
       if (isLoading) {
         return <Loader/>
       }
     return <>
-    
     <div className="mycontainer my-5">
     <div className="row products">
     {data.data.data.filter((product)=> product.brand.name === brandProduct).map((product,idx)=> { 
        const heartValue =  allfav?.find((pro)=>pro.id===product.id)
       return <div key={idx} className="col-md-2 p-2  position-relative overflow-hidden">
        {heartValue? <i id='wishIcon' onClick={()=> deleteItem(product.id)} className="fa-solid fa-heart d-flex justify-content-end position-absolute z-2 heartColor"></i>:<i id='wishIcon' onClick={()=> WishListFavorite(product.id)} className="fa-regular fa-heart d-flex justify-content-end position-absolute z-2 blackColor "></i>}
-
                     <Link className='product' to={`/productDetails/${product.id}`}>
                     <div className=" rounded-1 ">
                             <img className='w-100 rounded-3 shadow-sm' src={product.imageCover} alt=''></img>

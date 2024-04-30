@@ -7,10 +7,7 @@ import Loader from '../Loader/Loader'
 
 function Cart() {
    
- const { numOfCartItems,totalCartPrice, allProduct,updateCount,removeProduct,clearALLCart }  = useContext(cartContext)
-//   if (!allProduct) {     
-//     return <Loader/>
-//   }
+ const { numOfCartItems,totalCartPrice, allProduct,updateCount,removeProduct,clearALLCart }  = useContext(cartContext);
  async function updateCountFromApi(id,newCount) {
  const res = await updateCount(id,newCount);
 if(res){
