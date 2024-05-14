@@ -111,14 +111,11 @@ console.log(allfav);
  }
   
     async function getALLProducts() {
-        
      return  axios.get(`https://ecommerce.routemisr.com/api/v1/products`)
-    
     }
     const {data,isLoading} = useQuery('getALLProducts', getALLProducts,{
       // cacheTime:1000,
       
-
     });
 
 
