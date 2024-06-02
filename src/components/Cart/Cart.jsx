@@ -49,13 +49,13 @@ if(res){
     return <>
   <div className="container bg-main-light my-4 p-4 rounded-5">
     <h2 className='text-center fw-bold'>Cart Shop  :</h2>
-       <div className="d-flex justify-content-between flex-wrap">
+       <div style={{listStyle:"none" ,margin:"20px"}}  className="d-flex justify-content-between flex-wrap">
        <h5 className=' mt-3 fw-bold '>Total Cart Price : <span className='text-main'> {totalCartPrice} EGP</span></h5>
        <h5 className=' mt-3 fw-bold '>Total Cart Items : <span className='text-main' >{numOfCartItems}</span></h5>
 
        </div>
         
-        {numOfCartItems>0?<button onClick={clearALLCart}  className='btn btn-outline-danger '>Clear</button>:""}
+        {numOfCartItems>0?<button onClick={clearALLCart}  className='btn btn-outline-danger my-3'>Clear <i class="fa-solid fa-broom"></i></button>:""}
 
         {allProduct.map((product,idx)=>  <div key={idx} className="row border-1 border-bottom align-items-center py-3">
             <div className="col-md-1">
